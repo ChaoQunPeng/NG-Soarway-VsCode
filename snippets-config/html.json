@@ -147,11 +147,11 @@
     "smart_drawer": {
         "prefix": "sm-drawer",
         "body": [
-            "<nz-drawer [nzVisible]=\"${1:isVisible}\" [nzTitle]=\"'${2:title}'\" (nzOnClose)=\"handleClose()\">",
+            "<nz-drawer [nzVisible]=\"${1:isVisible}\" [nzTitle]=\"'${2:title}'\" (nzOnClose)=\"handleCancel()\">",
             "   ${0}",
             "   <div class=\"footer\">",
-            "       <button type=\"button\" nz-button nzType=\"default\" (click)=\"handleClose()\" class=\"mr-sm\"><span>取消</span></button>",
             "       <button type=\"button\" nz-button nzType=\"primary\" (click)=\"handleOk()\" class=\"mr-sm\"><span>确定</span></button>",
+            "       <button type=\"button\" nz-button nzType=\"default\" (click)=\"handleCancel()\" class=\"mr-sm\"><span>取消</span></button>",
             "   </div>",
             "</nz-drawer>"
         ]
@@ -165,7 +165,7 @@
         ]
     },
     "p_c_q": {
-        "prefix": "",
-        "body": "<div class=\"${1|one,two,three|}\">${0}</div>"
+        "prefix": "pcq",
+        "body": "<div>PCQ is ${1|clever,adorable,fantastic,excellent,intelligent,brilliant,glorious,outstanding|}</div>"
     }
 }
