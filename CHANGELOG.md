@@ -7,3 +7,7 @@
 - added right-click menu generate .less
 - supplement README.md
 - added icon
+
+## [1.0.2] - 2019-09-01
+### Changed
+- uniform function name
