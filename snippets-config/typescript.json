@@ -1,0 +1,146 @@
+{
+    "smart_console_log": {
+        "prefix": "con",
+        "scope": "javascript,typescript",
+        "body": [
+            "console.log($0)"
+        ],
+        "description": "快速输出console.log"
+    },
+    "smart_constructor": {
+        "prefix": "cons",
+        "scope": "javascript,typescript",
+        "body": [
+            "constructor(",
+            "   $1",
+            ") { $0 }"
+        ],
+        "description": "输出constructor"
+    },
+    "smart_export_class": {
+        "prefix": "expcl",
+        "scope": "javascript,typescript",
+        "body": [
+            "export class ${1:ClassName} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "输出export class 模板"
+    },
+    "smart_export_interface": {
+        "prefix": "expif",
+        "scope": "javascript,typescript",
+        "body": [
+            "export interface ${1:InterfaceName} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "输出interface模板"
+    },
+    "smart_json_stringify": {
+        "prefix": "jsons",
+        "scope": "javascript,typescript",
+        "body": [
+            "JSON.stringify($1)$0"
+        ],
+        "description": "输出JSON.stringify"
+    },
+    "smart_json_parse": {
+        "prefix": "jsonp",
+        "scope": "javascript,typescript",
+        "body": [
+            "JSON.parse($1)$0"
+        ],
+        "description": "输出JSON.parse"
+    },
+    "smart_http_success": {
+        "prefix": "sm-ies",
+        "scope": "javascript,typescript",
+        "body": [
+            "if (res.status.isSuccess) {",
+            "   this.msg.success(`${1}`);",
+            "   ${2}",
+            "} else {",
+            "   this.msg.error(`${3}`);",
+            "   ${4}",
+            "}"
+        ]
+    },
+    "smart_fg_fb": {
+        "prefix": "sm-form",
+        "body": [
+            "this.form = this.fb.group({",
+            "   $0",
+            "});"
+        ]
+    },
+    "smart_sm_get": {
+        "prefix": "sm-get",
+        "body": [
+            "get ${1}() {",
+            "   return this.${2:form}.controls.${1};",
+            "}",
+            "${0}"
+        ]
+    },
+    "smart_sm_setter": {
+        "prefix": "sm-setter",
+        "body": [
+            "_${1:data}: ${2|any,string,number,boolean,any[]|};",
+            "@Input()",
+            "set data(value: any) {",
+            "   this._${1:data} = value;",
+            "}",
+            "get data() {",
+            "   return this._${1:data};",
+            "}"
+        ]
+    },
+    "smart_msg_success": {
+        "prefix": "sm-msg-success",
+        "body": [
+            "this.msg.success(`${1}`);${0}"
+        ]
+    },
+    "smart_msg_error": {
+        "prefix": "sm-msg-error",
+        "body": [
+            "this.msg.error(`${1}`);${0}"
+        ]
+    },
+    "smart_msg_warning": {
+        "prefix": "sm-msg-warning",
+        "body": [
+            "this.msg.warning(`${1}`);${0}"
+        ]
+    },
+    "smart_msg_info": {
+        "prefix": "sm-msg-info",
+        "body": [
+            "this.msg.info(`${1}`);${0}"
+        ]
+    },
+    "smart_funciton_submit": {
+        "prefix": "sm-func-submit",
+        "body": [
+            "submit() {",
+            "   ${0}",
+            "}"
+        ]
+    },
+    "smart_funciton_reload": {
+        "prefix": "sm-func-reload",
+        "body": [
+            "reload() {",
+            "   ${0}",
+            "}"
+        ]
+    },
+    "smart_label_control_span": {
+        "prefix": "sm-span",
+        "body": [
+            "labelSpan = ${1:5};",
+            "controlSpan = ${2:19};"
+        ]
+    }
+}

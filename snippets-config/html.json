@@ -1,0 +1,171 @@
+{
+    "smart_ng_for": {
+        "prefix": "sff",
+        "body": [
+            "*ngFor=\"let ${1:item} of ${2:items};${0:trackBy: trackByIndex};\""
+        ],
+        "description": "快速输出*ngFor"
+    },
+    "smart_ng_if": {
+        "prefix": "sii",
+        "body": [
+            "*ngIf=\"${0}\""
+        ],
+        "description": "快速输出*ngIf"
+    },
+    "smart_form": {
+        "prefix": "sm-form",
+        "body": [
+            "<form nz-form [formGroup]=\"${1:form}\" ${2:(ngSubmit)=\"submit($event)\"}>",
+            "   ${0}",
+            "</form>"
+        ]
+    },
+    "smart_form_input": {
+        "prefix": "sm-form-input",
+        "body": [
+            "",
+            "<nz-form-item nz-row>",
+            "   <nz-form-label nzFor=\"${1}\" [nzSpan]=\"labelSpan\">${2:labelName}</nz-form-label>",
+            "   <nz-form-control [nzSpan]=\"controlSpan\">",
+            "       <input nz-input formControlName=\"${1}\" id=\"${1}\" placeholder=\"${3}\">",
+            "   </nz-form-control>",
+            "</nz-form-item>",
+            ""
+        ]
+    },
+    "smart_form_select": {
+        "prefix": "sm-form-select",
+        "body": [
+            "",
+            "<nz-form-item nz-row>",
+            "   <nz-form-label nzFor=\"${1}\" [nzSpan]=\"labelSpan\">${2:labelName}</nz-form-label>",
+            "   <nz-form-control [nzSpan]=\"controlSpan\">",
+            "       <nz-select formControlName=\"${1}\" nzPlaceHolder=\"${3}\" nzAllowClear>",
+            "           <nz-option *ngFor=\"let ${4:item} of ${5:items}\" [nzLabel]=\"${6}\" [nzValue]=\"${7}\"></nz-option>",
+            "       </nz-select>",
+            "   </nz-form-control>",
+            "</nz-form-item>",
+            ""
+        ]
+    },
+    "smart_form_inputNumber": {
+        "prefix": "sm-form-input-number",
+        "body": [
+            "",
+            "<nz-form-item nz-row>",
+            "   <nz-form-label nzFor=\"${1}\" [nzSpan]=\"labelSpan\">${2:labelName}</nz-form-label>",
+            "   <nz-form-control [nzSpan]=\"controlSpan\">",
+            "       <nz-input-number formControlName=\"${1}\" [nzMin]=\"1\"></nz-input-number>",
+            "   </nz-form-control>",
+            "</nz-form-item>",
+            ""
+        ]
+    },
+    "smart_form_radioGroup": {
+        "prefix": "sm-form-radio-group",
+        "body": [
+            "",
+            "<nz-form-item nz-row>",
+            "   <nz-form-label nzFor=\"${1}\" [nzSpan]=\"labelSpan\">${2}</nz-form-label>",
+            "   <nz-form-control [nzSpan]=\"controlSpan\">",
+            "       <nz-radio-group formControlName=\"${1}\">",
+            "           <label nz-radio [nzValue]=\"${3}\">${0}</label>",
+            "       </nz-radio-group>",
+            "   </nz-form-control>",
+            "</nz-form-item>",
+            ""
+        ]
+    },
+    "smart_form_switch": {
+        "prefix": "sm-form-switch",
+        "body": [
+            "",
+            "<nz-form-item nz-row>",
+            "   <nz-form-label nzFor=\"${1}\" [nzSpan]=\"labelSpan\">${2}</nz-form-label>",
+            "   <nz-form-control [nzSpan]=\"controlSpan\">",
+            "       <nz-switch formControlName=\"${1}\" ${3:nzCheckedChildren=\"${4}\"} ${5:nzUnCheckedChildren=\"${6:}\"}></nz-switch>",
+            "   </nz-form-control>",
+            "</nz-form-item>",
+            ""
+        ]
+    },
+    "smart_error_template": {
+        "prefix": "sm-template-error",
+        "body": [
+            "<ng-template #${1}ErrorTpl>",
+            "   ${0}",
+            "</ng-template>"
+        ]
+    },
+    "smart_warning_template": {
+        "prefix": "sm-template-warning",
+        "body": [
+            "<ng-template #${1}WarningTpl>",
+            "   ${0}",
+            "</ng-template>"
+        ]
+    },
+    "smart_success_template": {
+        "prefix": "sm-template-success",
+        "body": [
+            "<ng-template #${1}SuccessTpl>",
+            "   ${0}",
+            "</ng-template>"
+        ]
+    },
+    "smart_modal": {
+        "prefix": "sm-modal",
+        "body": [
+            "<nz-modal [(nzVisible)]=\"${1:isVisible}\" [nzTitle]=\"'${2:title}'\" (nzOnCancel)=\"handleCancel()\" (nzOnOk)=\"handleOk()\">",
+            "   ${0}",
+            "</nz-modal>"
+        ]
+    },
+    "smart_card": {
+        "prefix": "sm-card",
+        "body": [
+            "<nz-card [nzTitle]=\"'${1:title}'\">",
+            "   ${0}",
+            "</nz-card>"
+        ]
+    },
+    "smart_card_extra": {
+        "prefix": "sm-card-extra",
+        "body": [
+            "<nz-card [nzTitle]=\"'${1:title}'\"  [nzExtra]=\"extraTpl\">",
+            "   <ng-template #extraTpl>",
+            "       <button nz-button nzShape=\"circle\" [nzLoading]=\"http.loading\" (click)=\"reload()\">",
+            "           <i nz-icon nzType=\"reload\" nzTheme=\"outline\"></i>",
+            "       </button>",
+            "   </ng-template>",
+            "",
+            "   ${0}",
+            "</nz-card>"
+        ]
+    },
+    "smart_drawer": {
+        "prefix": "sm-drawer",
+        "body": [
+            "<nz-drawer [nzVisible]=\"${1:isVisible}\" [nzTitle]=\"'${2:title}'\" (nzOnClose)=\"handleClose()\">",
+            "   ${0}",
+            "   <div class=\"footer\">",
+            "       <button type=\"button\" nz-button nzType=\"default\" (click)=\"handleClose()\" class=\"mr-sm\"><span>取消</span></button>",
+            "       <button type=\"button\" nz-button nzType=\"primary\" (click)=\"handleOk()\" class=\"mr-sm\"><span>确定</span></button>",
+            "   </div>",
+            "</nz-drawer>"
+        ]
+    },
+    "smart_btn_reload": {
+        "prefix": "sm-btn-reload",
+        "body": [
+            "<button nz-button nzShape=\"circle\" [nzLoading]=\"http.loading\" (click)=\"reload()\">",
+            "    <i nz-icon nzType=\"reload\" nzTheme=\"outline\"></i>",
+            "</button>"
+        ]
+    },
+    "p_c_q": {
+        "prefix": "",
+        "body": "<div class=\"${1|one,two,three|}\">${0}</div>"
+    }
+}
