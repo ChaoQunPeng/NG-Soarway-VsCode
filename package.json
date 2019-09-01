@@ -19,7 +19,7 @@
 		"commands": [
 			{
 				"command": "extension.lessGenerator",
-				"title": "生成less文件"
+				"title": "Generate less File"
 			}
 		],
 		"snippets": [
