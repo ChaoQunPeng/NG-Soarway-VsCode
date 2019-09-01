@@ -1,0 +1,59 @@
+{
+	"name": "ng-soarway-vscode",
+	"displayName": "NG-Soarway-VsCode",
+	"description": "Soarway Some code snippets and little features",
+	"version": "1.0.0",
+	"icon": "icon.png",
+	"publisher": "pcq",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.lessGenerator"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.lessGenerator",
+				"title": "生成less文件"
+			}
+		],
+		"snippets": [
+			{
+				"language": "typescript",
+				"path": "/snippets-config/typescript.json"
+			},
+			{
+				"language": "html",
+				"path": "/snippets-config/html.json"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerViewletVisible",
+					"command": "extension.lessGenerator",
+					"group": "navigation@0"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"tslint": "^5.12.1",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
+}
