@@ -11,6 +11,12 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(apiDisposable);
+	
+	let serviceDisposable = vscode.commands.registerCommand('extension.GenerateService', function (uri) {
+		console.log(`generate service`)
+	});
+
+	context.subscriptions.push(serviceDisposable);
 }
 
 export function deactivate() { }

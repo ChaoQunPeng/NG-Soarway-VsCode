@@ -142,5 +142,44 @@
             "labelSpan = ${1:5};",
             "controlSpan = ${2:19};"
         ]
+    },
+    "sf_STColumns": {
+        "prefix": "sm-stcolumns",
+        "body": [
+            "columns: STColumn[] = [",
+            "{",
+            "   \"title\": \"\",",
+            "   \"index\": \"\",",
+            "   \"width\": \"\",",
+            "   \"className\": \"\"",
+            "}]"
+        ]
+    },
+    "sf_STColumn": {
+        "prefix": "sm-stcol",
+        "body": [
+            "{",
+            "   \"title\": \"${1}\",",
+            "   \"index\": \"${2}\",",
+            "   \"width\": \"${3}\",",
+            "   \"className\": \"${4}\"",
+            "}"
+        ]
+    },
+    "sf_SF": {
+        "prefix": "sm-sf",
+        "body": [
+            "schema: SFSchema = {",
+            "   \"properties\": {",
+            "   \"${1}\": {",
+            "   \"type\": \"string\",",
+            "   \"title\": \"${2}\",",
+            "   \"format\": \"${3}\",",
+            "   \"ui\": {",
+            "       }",
+            "     }",
+            " }",
+            "}"
+        ]
     }
 }

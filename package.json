@@ -12,7 +12,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.lessGenerator"
+		"onCommand:extension.lessGenerator",
+		"onCommand:exiension.GenerateService"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -20,6 +21,10 @@
 			{
 				"command": "extension.lessGenerator",
 				"title": "Generate less File"
+			},
+			{
+				"command": "extension.GenerateService",
+				"title": "Generate Service"
 			}
 		],
 		"snippets": [
@@ -38,6 +43,11 @@
 					"when": "explorerViewletVisible",
 					"command": "extension.lessGenerator",
 					"group": "navigation@0"
+				},
+				{
+					"when": "explorerViewletVisible",
+					"command": "extension.GenerateService",
+					"group": "navigation@1"
 				}
 			]
 		}
