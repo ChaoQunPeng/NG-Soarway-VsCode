@@ -4,16 +4,19 @@ import path = require('path');
 
 
 export function activate(context: vscode.ExtensionContext) {
-	// vscode.window.showInformationMessage('Hello World!');
+	vscode.window.showInformationMessage('Hello World!');
 
 	let apiDisposable = vscode.commands.registerCommand('extension.lessGenerator', function (uri) {
 		genCommand(uri);
 	});
 
 	context.subscriptions.push(apiDisposable);
-	
-	let serviceDisposable = vscode.commands.registerCommand('extension.GenerateService', function (uri) {
-		console.log(`generate service`)
+
+	let serviceDisposable = vscode.commands.registerCommand('extension.serviceGenerator', function (uri) {
+		vscode.window.showQuickPick(['a', 'b', 'c']).then(res => {
+			vscode.window.showInformationMessage(res as string);
+			vscode.commands.executeCommand('node -v')
+		})
 	});
 
 	context.subscriptions.push(serviceDisposable);
@@ -41,7 +44,7 @@ export function genCommand(uri: any) {
 		if (res) {
 			vscode.window.showErrorMessage(`${fileFolderName}.component.less已经存在！`);
 			return;
-		} 
+		}
 
 		fs.writeFile(lessFilePath, '', (error) => {
 			if (error) {

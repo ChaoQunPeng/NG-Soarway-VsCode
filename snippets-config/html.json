@@ -114,14 +114,6 @@
             "</ng-template>"
         ]
     },
-    "smart_modal": {
-        "prefix": "sm-modal",
-        "body": [
-            "<nz-modal [(nzVisible)]=\"${1:isVisible}\" [nzTitle]=\"'${2:title}'\" (nzOnCancel)=\"handleCancel()\" (nzOnOk)=\"handleOk()\">",
-            "   ${0}",
-            "</nz-modal>"
-        ]
-    },
     "smart_card": {
         "prefix": "sm-card",
         "body": [
@@ -144,22 +136,10 @@
             "</nz-card>"
         ]
     },
-    "smart_drawer": {
-        "prefix": "sm-drawer",
-        "body": [
-            "<nz-drawer [nzVisible]=\"${1:isVisible}\" [nzTitle]=\"'${2:title}'\" (nzOnClose)=\"handleCancel()\">",
-            "   ${0}",
-            "   <div class=\"footer\">",
-            "       <button type=\"button\" nz-button nzType=\"primary\" (click)=\"handleOk()\" class=\"mr-sm\"><span>确定</span></button>",
-            "       <button type=\"button\" nz-button nzType=\"default\" (click)=\"handleCancel()\" class=\"mr-sm\"><span>取消</span></button>",
-            "   </div>",
-            "</nz-drawer>"
-        ]
-    },
     "smart_btn_reload": {
         "prefix": "sm-btn-reload",
         "body": [
-            "<button nz-button nzShape=\"circle\" [nzLoading]=\"http.loading\" (click)=\"reload()\">",
+            "<button nz-button nzShape=\"circle\" [nzLoading]=\"loading\" (click)=\"reload()\">",
             "    <i nz-icon nzType=\"reload\" nzTheme=\"outline\"></i>",
             "</button>"
         ]

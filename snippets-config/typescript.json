@@ -53,19 +53,6 @@
         ],
         "description": "输出JSON.parse"
     },
-    "smart_http_success": {
-        "prefix": "sm-ies",
-        "scope": "javascript,typescript",
-        "body": [
-            "if (res.status.isSuccess) {",
-            "   this.msg.success(`${1}`);",
-            "   ${2}",
-            "} else {",
-            "   this.msg.error(`${3}`);",
-            "   ${4}",
-            "}"
-        ]
-    },
     "smart_fg_fb": {
         "prefix": "sm-form",
         "body": [
@@ -77,7 +64,7 @@
     "smart_sm_get": {
         "prefix": "sm-get",
         "body": [
-            "get ${1}() {",
+            "get ${1}Ctrl() {",
             "   return this.${2:form}.controls.${1};",
             "}",
             "${0}"
@@ -120,22 +107,6 @@
             "this.msg.info(`${1}`);${0}"
         ]
     },
-    "smart_funciton_submit": {
-        "prefix": "sm-func-submit",
-        "body": [
-            "submit() {",
-            "   ${0}",
-            "}"
-        ]
-    },
-    "smart_funciton_reload": {
-        "prefix": "sm-func-reload",
-        "body": [
-            "reload() {",
-            "   ${0}",
-            "}"
-        ]
-    },
     "smart_label_control_span": {
         "prefix": "sm-span",
         "body": [
@@ -143,43 +114,62 @@
             "controlSpan = ${2:19};"
         ]
     },
-    "sf_STColumns": {
-        "prefix": "sm-stcolumns",
+    "smart_http_func_get": {
+        "prefix": "sm-http-get",
         "body": [
-            "columns: STColumn[] = [",
-            "{",
-            "   \"title\": \"\",",
-            "   \"index\": \"\",",
-            "   \"width\": \"\",",
-            "   \"className\": \"\"",
-            "}]"
-        ]
-    },
-    "sf_STColumn": {
-        "prefix": "sm-stcol",
-        "body": [
-            "{",
-            "   \"title\": \"${1}\",",
-            "   \"index\": \"${2}\",",
-            "   \"width\": \"${3}\",",
-            "   \"className\": \"${4}\"",
+            "${1}(params${2:?}: any) {",
+            "   return this.http.get(`${this.baseController}/${3}`${4:, params});",
             "}"
         ]
     },
-    "sf_SF": {
-        "prefix": "sm-sf",
+    "smart_http_func_post": {
+        "prefix": "sm-http-post",
         "body": [
-            "schema: SFSchema = {",
-            "   \"properties\": {",
-            "   \"${1}\": {",
-            "   \"type\": \"string\",",
-            "   \"title\": \"${2}\",",
-            "   \"format\": \"${3}\",",
-            "   \"ui\": {",
-            "       }",
-            "     }",
-            " }",
+            "${1}(params${2:?}: any) {",
+            "   return this.http.post(`${this.baseController}/${3}`${4:, params});",
             "}"
+        ]
+    },
+    "smart_http_func_put": {
+        "prefix": "sm-http-put",
+        "body": [
+            "${1}(${2:id}:string | number, params: any) {",
+            "   return this.http.put(`${this.baseController}/${${2:id}}`${3:, params});",
+            "}"
+        ]
+    },
+    "smart_http_func_delete": {
+        "prefix": "sm-http-delete",
+        "body": [
+            "${1}(${2:id}:string | number) {",
+            "   return this.http.delete(`${this.baseController}/${${2:id}}`);",
+            "}"
+        ]
+    },
+    "smart_nz_drawer_ref": {
+        "prefix": "sm-drawer-ref",
+        "body": [
+            "private drawerRef: NzDrawerRef"
+        ]
+    },
+    "smart_nz_drawer_service_func": {
+        "prefix": "sm-drawer-service-func",
+        "body": [
+            "const drawerRef = this.drawerService.create({",
+            "   nzTitle: `${1}`",
+            "   nzContent: ${0}",
+            "   nzWidth: 600",
+            "});",
+            "",
+            "drawerRef.afterClose.subscribe(res => {",
+            "   ",
+            "});"
+        ]
+    },
+    "smart_nz_modal_ref": {
+        "prefix": "sm-modal-ref",
+        "body": [
+            "private modalRef: NzModalRef"
         ]
     }
 }
