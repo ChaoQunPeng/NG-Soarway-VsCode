@@ -13,10 +13,12 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(apiDisposable);
 
 	let serviceDisposable = vscode.commands.registerCommand('extension.serviceGenerator', function (uri) {
-		vscode.window.showQuickPick(['a', 'b', 'c']).then(res => {
-			vscode.window.showInformationMessage(res as string);
-			vscode.commands.executeCommand('node -v')
-		})
+		// vscode.window.showQuickPick(['a', 'b', 'c']).then(res => {
+		// 	vscode.window.showInformationMessage(res as string);
+		// 	vscode.commands.executeCommand('node -v')
+		// })
+
+		genServiceCommand(uri);
 	});
 
 	context.subscriptions.push(serviceDisposable);
@@ -56,9 +58,64 @@ export function genCommand(uri: any) {
 	})
 }
 
+export function genServiceCommand(uri: any) {
+	const currentPath = uri.fsPath;
+	const stats = fs.statSync(currentPath);
+
+	let parentPath: string = "";
+	// 获取文件夹名称
+	if (stats.isDirectory()) parentPath = currentPath;
+	if (stats.isFile()) parentPath = path.dirname(currentPath);
+	const folderPath = parentPath;
+	// 当前文件夹名称
+	const fileFolderName = getFolderName(folderPath, "\\");
+	// less文件的路径
+	const lessFilePath = path.join(folderPath, `${fileFolderName}.service.ts`);
+
+	fs.exists(lessFilePath, (res) => {
+		if (res) {
+			vscode.window.showErrorMessage(`${fileFolderName} service 已经存在！`);
+			return;
+		}
+
+		let serviceContent = `import { Injectable } from '@angular/core';
+
+@Injectable({
+	providedIn: 'root'
+})
+
+export class ${classify(fileFolderName)}Service {
+
+	constructor() { }
+}`;
+
+		fs.writeFile(lessFilePath, serviceContent, (error) => {
+			if (error) {
+				vscode.window.showInformationMessage(error.message);
+				return;
+			}
+			vscode.window.showInformationMessage(`创建${fileFolderName} service成功!`);
+		});
+	})
+}
+
 
 function getFolderName(path: string, split: string) {
 	let strArr = path.split(split)
 	let res = strArr[strArr.length - 1] != "" ? strArr[strArr.length - 1] : strArr[strArr.length - 2]
+	return res;
+}
+
+
+function classify(str: string): string {
+	let arr = str.split('-');
+	let res = '';
+	for (let i = 0; i < arr.length; i++) {
+		const firstWord = arr[i][0].toLocaleUpperCase();
+		const item = arr[i].split('');
+		// splice的返回值是被改变的元素
+		item.splice(0, 1, firstWord);
+		res += item.join('');
+	}
 	return res;
 }
