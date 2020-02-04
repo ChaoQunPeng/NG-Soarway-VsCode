@@ -146,12 +146,19 @@ export function ngJojoCommand() {
 		'ng g ng-jojo:blank'
 	];
 
-	vscode.window.showQuickPick(options,{
-		placeHolder:'请选择要执行的命令'
+	vscode.window.showQuickPick(options, {
+		placeHolder: '请选择要执行的命令'
 	}).then(res => {
-		let terminal = vscode.window.createTerminal();
-		terminal.show();
-		terminal.sendText(res as string);
+
+		let jojoTerminal = vscode.window.terminals.find(t => t.name == 'ng-jojo-terminal');
+
+		if (!jojoTerminal) {
+			jojoTerminal = vscode.window.createTerminal('ng-jojo-terminal');
+		}
+		
+		jojoTerminal.show();
+		jojoTerminal.sendText(res as string);
+
 	})
 }
 
