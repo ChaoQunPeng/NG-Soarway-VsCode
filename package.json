@@ -13,18 +13,28 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.lessGenerator",
-		"onCommand:exiension.serviceGenerator"
+		"onCommand:extension.serviceGenerator",
+		"onCommand:extension.readmeGenerator",
+		"onCommand:extension.ngJojoGenerator"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "extension.lessGenerator",
-				"title": "Generate less File"
+				"title": "Soarway/Generate less.ts"
 			},
 			{
 				"command": "extension.serviceGenerator",
-				"title": "Generate Service"
+				"title": "Soarway/Generate service.ts"
+			},
+			{
+				"command": "extension.readmeGenerator",
+				"title": "Soarway/Generate README.md"
+			},
+			{
+				"command": "extension.ngJojoGenerator",
+				"title": "Soarway/ng-jojo"
 			}
 		],
 		"snippets": [
@@ -48,6 +58,16 @@
 					"when": "explorerViewletVisible",
 					"command": "extension.serviceGenerator",
 					"group": "navigation@1"
+				},
+				{
+					"when": "explorerViewletVisible",
+					"command": "extension.readmeGenerator",
+					"group": "navigation@2"
+				},
+				{
+					"when": "explorerViewletVisible",
+					"command": "extension.ngJojoGenerator",
+					"group": "navigation@3"
 				}
 			]
 		}
@@ -65,5 +85,8 @@
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"run-in-terminal": "0.0.3"
 	}
 }

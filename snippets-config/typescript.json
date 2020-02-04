@@ -171,5 +171,13 @@
         "body": [
             "private modalRef: NzModalRef"
         ]
+    },
+    "sm_region_endregion": {
+        "prefix": "sm-#region",
+        "body": [
+            "//#region ",
+            "   ${0}",
+            "//#endregion"
+        ]
     }
 }
