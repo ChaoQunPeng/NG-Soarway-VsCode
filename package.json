@@ -2,7 +2,7 @@
 	"name": "ng-soarway-vscode",
 	"displayName": "NG-Soarway-VsCode",
 	"description": "Soarway Some code snippets and little features",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"icon": "icon.png",
 	"publisher": "pcq",
 	"engines": {
