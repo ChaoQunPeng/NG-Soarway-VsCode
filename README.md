@@ -2,8 +2,8 @@
 Soarway Angular项目代码片段和小功能的插件。之前的smart-pcq-snippets全部移到此插件实现。
 
 ### 小功能
-* 右键工作目录可快速生成less文件
-
+* 右键工作目录可快速生成less.ts、service.ts和README.md
+* 右键工作目录可执行更便捷的执行ng-jojo的命令
 
 
 ### 代码片段一览
